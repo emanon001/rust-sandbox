@@ -16,6 +16,18 @@ macro_rules! if_let_chain {
     };
 }
 
+fn expand() {
+    let a = Some(1);
+    let b = Some(2);
+    if_let_chain! (
+        let Some(a) = a,
+        let Some(b) = b,
+        {
+            assert_eq!(a + b, 3);
+        }
+    );
+}
+
 #[cfg(test)]
 mod tests {
     #[test]
