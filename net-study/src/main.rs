@@ -3,8 +3,8 @@ use std::env;
 use std::str::FromStr;
 use structopt::StructOpt;
 
-// mod tcp_client;
-mod tcp_server;
+use net_study::{tcp_client, tcp_server};
+
 // mod udp_client;
 // mod udp_server;
 
@@ -62,7 +62,9 @@ fn main() {
             Role::Server => {
                 tcp_server::serve(address).unwrap_or_else(|e| error!("{}", e));
             }
-            Role::Client => {}
+            Role::Client => {
+                tcp_client::connect(address).unwrap_or_else(|e| error!("{}", e));
+            }
         },
         Protocol::Udp => match role {
             Role::Server => {}
