@@ -1,6 +1,6 @@
 # net-study
 
-[Rustで学ぶネットワークプログラミング](https://cha-shu00.hatenablog.com/entry/2019/06/12/231526)をベースに [std::net](https://doc.rust-lang.org/std/net/index.html) の学習を行います。
+[Rustで学ぶネットワークプログラミング](https://cha-shu00.hatenablog.com/entry/2019/06/12/231526)をベースにネットワークプログラミングの学習を行います。
 
 ## メモ
 
