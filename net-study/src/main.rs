@@ -3,10 +3,7 @@ use std::env;
 use std::str::FromStr;
 use structopt::StructOpt;
 
-use net_study::{tcp_client, tcp_server};
-
-// mod udp_client;
-// mod udp_server;
+use net_study::{tcp_client, tcp_server, udp_server};
 
 enum Protocol {
     Tcp,
@@ -67,7 +64,9 @@ fn main() {
             }
         },
         Protocol::Udp => match role {
-            Role::Server => {}
+            Role::Server => {
+                udp_server::serve(address).unwrap_or_else(|e| error!("{}", e));
+            }
             Role::Client => {}
         },
     }
